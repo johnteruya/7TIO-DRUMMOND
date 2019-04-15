@@ -32,19 +32,13 @@ insert into role values ('ROLE_USER');
     git config --global alias.lg 'log --all --graph --decorate --oneline --abbrev-commit'
     git config --global alias.ac '!git add -A && git commit -m'
     git config --global alias.envia '!git push && git rebase' --replace-all
+    
+##Comandos para Atualizar a Branch Dev
+git config --global alias.atualiza '!git checkout prod && git merge dev && git checkout dev'
 
 ## Alias para Checkout
-### Projeto-Springboot-src
-git config --global alias.ps 'git checkout projeto/src'
-
 ### Projeto-Springboot/desenvolvimento
-git config --global alias.psd '!git checkout projeto-springboot/desenvolvimento'
+git config --global alias.dev '!git checkout dev'
 
 ### Projeto-Springboot/produção
-git config --global alias.psp '!git checkout projeto-springboot/produção'
-
-### Projeto-Springboot/original
-git config --global alias.pso '!git checkout projeto-springboot/original'
-
-### Projeto-Springboot/views
-git config --global alias.psv '!git checkout projeto-springboot/views'
+git config --global alias.prod '!git checkout prod'
