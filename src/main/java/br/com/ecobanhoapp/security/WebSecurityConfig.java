@@ -36,8 +36,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 		.passwordEncoder(new BCryptPasswordEncoder());
 	}
 
-	@Override
-	public void configure(WebSecurity web) throws Exception{
-		web.ignoring().antMatchers("/materialize/**", "/style/**", "/bootstrap/**", "/jquery/**", "/popper.js/**", "/holder/**");
-	}
 }
