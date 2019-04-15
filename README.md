@@ -33,7 +33,7 @@ insert into role values ('ROLE_USER');
     git config --global alias.ac '!git add -A && git commit -m'
     git config --global alias.envia '!git push && git rebase' --replace-all
     
-##Comandos para Atualizar a Branch Dev
+## Comandos para Atualizar a Branch Dev
 git config --global alias.atualiza '!git checkout prod && git merge dev && git checkout dev'
 
 ## Alias para Checkout
