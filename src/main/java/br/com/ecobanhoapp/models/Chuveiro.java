@@ -1,17 +1,12 @@
 package br.com.ecobanhoapp.models;
 
 import java.io.Serializable;
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 import org.hibernate.validator.constraints.NotEmpty;
-
-
 
 
 @Entity
@@ -27,8 +22,9 @@ public class Chuveiro implements Serializable{
 	private String tipo_chuveiro;
 	
 	@NotEmpty
-	private Float vazao;
+	private int vazao;
 
+	
 	
 	public int getId_chuveiro() {
 		return id_chuveiro;
@@ -46,15 +42,16 @@ public class Chuveiro implements Serializable{
 		this.tipo_chuveiro = tipo_chuveiro;
 	}
 
-	public Float getVazao() {
+	public int getVazao() {
 		return vazao;
 	}
 
-	public void setVazao(Float vazao) {
+	public void setVazao(int vazao) {
 		this.vazao = vazao;
 	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
 }
