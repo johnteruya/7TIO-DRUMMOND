@@ -1,4 +1,4 @@
-package com.example.easynotes.exception;
+package br.com.ecobanho.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

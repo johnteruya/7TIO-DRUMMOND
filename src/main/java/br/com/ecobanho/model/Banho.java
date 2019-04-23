@@ -1,4 +1,4 @@
-package com.example.easynotes.model;
+package br.com.ecobanho.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.CreatedDate;
@@ -13,11 +13,11 @@ import java.util.Date;
  * Created by rajeevkumarsingh on 27/06/17.
  */
 @Entity
-@Table(name = "notes")
+@Table(name = "banho")
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(value = {"createdAt", "updatedAt"},
         allowGetters = true)
-public class Note {
+public class Banho {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

@@ -1,4 +1,4 @@
-package com.example.easynotes.controller;
+package br.com.ecobanho.controller;
 
 
 import org.springframework.web.bind.annotation.GetMapping;
