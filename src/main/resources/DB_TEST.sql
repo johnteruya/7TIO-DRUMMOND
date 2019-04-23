@@ -1,5 +1,5 @@
-CREATE DATABASE ecobanhoapp;
-USE ecobanhoapp;
+CREATE DATABASE ecobanho_app;
+USE ecobanho_app;
 DROP DATABASE ecobanho_app;
 
 /* CRIANDO TABELAS */
@@ -98,7 +98,6 @@ insert into banho (data_banho, tempo_real, consumo_real, tempo_ideal, consumo_id
 
 insert into banho (data_banho, tempo_real, consumo_real, tempo_ideal, consumo_ideal, economia,fk_usuario,fk_chuveiro) values ('2019-04-16', 600, 15000, 720, 18000, 3000, 7, 1);
 insert into banho (data_banho, tempo_real, consumo_real, tempo_ideal, consumo_ideal, economia,fk_usuario,fk_chuveiro) values ('2019-04-16', 700, 17500, 720, 18000, 500, 7, 1);
-
 
 
 
