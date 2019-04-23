@@ -17,7 +17,7 @@ public class EcoBanhoController {
     @Autowired
     chuveiroRepository noteRepository;
 
-    @GetMapping("/notes")
+    @GetMapping("/chuveiros")
     public List<Chuveiro> getAllNotes() {
         return noteRepository.findAll();
     }
@@ -27,33 +27,5 @@ public class EcoBanhoController {
         return noteRepository.save(note);
     }
 
-    @GetMapping("/notes/{id}")
-    public Chuveiro getNoteById(@PathVariable(value = "id") Long noteId) {
-        return noteRepository.findById(noteId)
-                .orElseThrow(() -> new ResourceNotFoundException("Note", "id", noteId));
-    }
 
-    @PutMapping("/notes/{id}")
-    public Chuveiro updateNote(@PathVariable(value = "id") Long noteId,
-                                           @Valid @RequestBody Banho noteDetails) {
-
-    	Chuveiro note = noteRepository.findById(noteId)
-                .orElseThrow(() -> new ResourceNotFoundException("Note", "id", noteId));
-
-        note.setTitle(noteDetails.getTitle());
-        note.setContent(noteDetails.getContent());
-
-        Chuveiro updatedNote = noteRepository.save(note);
-        return updatedNote;
-    }
-
-    @DeleteMapping("/notes/{id}")
-    public ResponseEntity<?> deleteNote(@PathVariable(value = "id") Long noteId) {
-    	Chuveiro note = noteRepository.findById(noteId)
-                .orElseThrow(() -> new ResourceNotFoundException("Note", "id", noteId));
-
-        noteRepository.delete(note);
-
-        return ResponseEntity.ok().build();
-    }
 }
