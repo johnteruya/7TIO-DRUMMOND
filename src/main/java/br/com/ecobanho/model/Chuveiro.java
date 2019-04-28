@@ -1,30 +1,28 @@
 package br.com.ecobanho.model;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "Chuveiro")
+@Table(name = "chuveiro")
 @EntityListeners(AuditingEntityListener.class)
-
 public class Chuveiro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id_chuveiro;
+    private Long id_chuveiro;
 
     @NotBlank
     private String tipo_chuveiro;
 
     @NotBlank
-    private int vazao;
+    private String vazao;
 
-	public long getId_chuveiro() {
+	public Long getId_chuveiro() {
 		return id_chuveiro;
 	}
 
-	public void setId_chuveiro(long id_chuveiro) {
+	public void setId_chuveiro(Long id_chuveiro) {
 		this.id_chuveiro = id_chuveiro;
 	}
 
@@ -36,16 +34,12 @@ public class Chuveiro {
 		this.tipo_chuveiro = tipo_chuveiro;
 	}
 
-	public int getVazao() {
+	public String getVazao() {
 		return vazao;
 	}
 
-	public void setVazao(int vazao) {
+	public void setVazao(String vazao) {
 		this.vazao = vazao;
 	}
-
-    
-    
-
-    
+      
 }

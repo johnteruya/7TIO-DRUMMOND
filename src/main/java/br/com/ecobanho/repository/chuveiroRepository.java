@@ -1,12 +1,10 @@
 package br.com.ecobanho.repository;
 
+import br.com.ecobanho.model.Chuveiro;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import br.com.ecobanho.model.Chuveiro;
-
-
 @Repository
-public interface chuveiroRepository extends JpaRepository<Chuveiro, Long> {
+public interface ChuveiroRepository extends JpaRepository<Chuveiro, Long> {
 
 }
