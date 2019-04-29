@@ -32,14 +32,6 @@ public class ChuveiroController {
 				.orElseThrow(() -> new ResourceNotFoundException("Chuveiro", "id_chuveiro", chuveiroId));
 	}
 	
-	/* TESTE */
-	
-    @GetMapping("/listarPorTipoChuveiro")
-    public List<Chuveiro> getChuveiroByTipo(String tipo_chuveiro) {
-		return chuveiroRepository.getChuveiroByTipo(tipo_chuveiro);
-	}
-	
-	
     @PutMapping("/chuveiros/{id_chuveiro}")
     public Chuveiro updateChuveiro(@PathVariable(value = "id_chuveiro") Long chuveiroId,
                                            @Valid @RequestBody Chuveiro chuveiroDetails) {
@@ -63,4 +55,15 @@ public class ChuveiroController {
 
         return ResponseEntity.ok().build();
     }
+
+    
+	/*
+	 * BUSCAS QUERY BANCO
+	 */
+    
+    @GetMapping("/listarPorTipoChuveiro")
+    public List<Chuveiro> getChuveiroByTipo(String tipo_chuveiro) {
+		return chuveiroRepository.getChuveiroByTipo(tipo_chuveiro);
+	}
+    
 }
