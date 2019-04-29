@@ -8,7 +8,8 @@ import javax.validation.constraints.NotBlank;
 @Table(name = "chuveiro")
 @EntityListeners(AuditingEntityListener.class)
 public class Chuveiro {
-    @Id
+    
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_chuveiro;
 
@@ -18,6 +19,8 @@ public class Chuveiro {
     @NotBlank
     private String vazao;
 
+    
+    
 	public Long getId_chuveiro() {
 		return id_chuveiro;
 	}

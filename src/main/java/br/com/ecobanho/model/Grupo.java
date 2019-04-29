@@ -4,12 +4,12 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
-
 @Entity
 @Table(name = "grupo")
 @EntityListeners(AuditingEntityListener.class)
 public class Grupo {
-    @Id
+    
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_grupo;
 
