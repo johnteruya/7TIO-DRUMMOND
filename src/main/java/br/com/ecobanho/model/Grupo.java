@@ -4,6 +4,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
+
 @Entity
 @Table(name = "grupo")
 @EntityListeners(AuditingEntityListener.class)
@@ -18,6 +19,7 @@ public class Grupo {
     @NotBlank
     private String num_integrantes;
 
+    
 	public Long getId_grupo() {
 		return id_grupo;
 	}
@@ -41,6 +43,7 @@ public class Grupo {
 	public void setNum_integrantes(String num_integrantes) {
 		this.num_integrantes = num_integrantes;
 	}
+
 
 
 }

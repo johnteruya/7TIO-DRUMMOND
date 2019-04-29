@@ -33,7 +33,6 @@ public class GrupoController {
 		return grupoRepository.findById(grupoId)
 				.orElseThrow(() -> new ResourceNotFoundException("Grupo", "id_grupo", grupoId));
 	}
-
 	
 	@PutMapping("/grupos/{id_grupo}") public Grupo updateGrupo(@PathVariable(value = "id_grupo")Long grupoId,
 		@Valid @RequestBody Grupo grupoDetails) {
@@ -48,7 +47,6 @@ public class GrupoController {
 		
 		return updatedGrupo;
 	}
-
 	
 	@DeleteMapping("/grupos/{id_grupo}") public ResponseEntity<?>
 	deleteNote(@PathVariable(value = "id_grupo") Long grupoId) {
