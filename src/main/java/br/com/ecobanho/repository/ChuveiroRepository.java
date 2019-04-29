@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 public interface ChuveiroRepository extends JpaRepository<Chuveiro, Long> {
 
 
-	@Query(value = "SELECT u FROM C u ORDER BY id_chuveiro") /* , nativeQuery = true */
+	@Query(value = "SELECT u FROM Chuveiro u ORDER BY id_chuveiro") /* , nativeQuery = true */
 	List<Chuveiro> getChuveiroByTipo(String tipo_chuveiro);
 	
 }

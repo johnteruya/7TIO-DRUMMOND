@@ -34,7 +34,7 @@ public class ChuveiroController {
 	
 	/* TESTE */
 	
-    @GetMapping("/listarPorTipo")
+    @GetMapping("/listarPorTipoChuveiro")
     public List<Chuveiro> getChuveiroByTipo(String tipo_chuveiro) {
 		return chuveiroRepository.getChuveiroByTipo(tipo_chuveiro);
 	}
