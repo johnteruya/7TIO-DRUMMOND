@@ -13,11 +13,11 @@ public class Grupo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_grupo;
 
-    @NotBlank
-    private String nome_grupo;
+	@Column(nullable=false)
+	private String nome_grupo;
 
-    @NotBlank
-    private String num_integrantes;
+	@Column(nullable=false)
+	private int num_integrantes;
 
     
 	public Long getId_grupo() {
@@ -36,11 +36,11 @@ public class Grupo {
 		this.nome_grupo = nome_grupo;
 	}
 
-	public String getNum_integrantes() {
+	public int getNum_integrantes() {
 		return num_integrantes;
 	}
 
-	public void setNum_integrantes(String num_integrantes) {
+	public void setNum_integrantes(int num_integrantes) {
 		this.num_integrantes = num_integrantes;
 	}
 
