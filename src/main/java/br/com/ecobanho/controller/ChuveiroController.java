@@ -61,7 +61,7 @@ public class ChuveiroController {
 	 * BUSCAS QUERY BANCO
 	 */
     
-    @GetMapping("/listarPorTipoChuveiro")
+    @GetMapping("/tipoChuveiro")
     public List<Chuveiro> getChuveiroByTipo(String tipo_chuveiro) {
 		return chuveiroRepository.getChuveiroByTipo(tipo_chuveiro);
 	}
