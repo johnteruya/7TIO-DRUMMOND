@@ -19,18 +19,16 @@ public class Usuario {
 	private String nome_usuario;
 	
 	@Column(nullable=false)
-	private boolean sexo;
+	private int sexo;
 	
 	@Column(nullable=false)
-	private int tempo_usual;
+	private Long tempo_usual;
 	
 	@Column(nullable=false)
 	private int fk_tipo_chuveiro;
 	
 	private int fk_id_grupo;
 
-	
-	
 	public Long getId_usuario() {
 		return id_usuario;
 	}
@@ -55,19 +53,22 @@ public class Usuario {
 		this.nome_usuario = nome_usuario;
 	}
 
-	public boolean isSexo() {
+
+
+		
+	public int getSexo() {
 		return sexo;
 	}
 
-	public void setSexo(boolean sexo) {
+	public void setSexo(int sexo) {
 		this.sexo = sexo;
 	}
 
-	public int getTempo_usual() {
+	public Long getTempo_usual() {
 		return tempo_usual;
 	}
 
-	public void setTempo_usual(int tempo_usual) {
+	public void setTempo_usual(Long tempo_usual) {
 		this.tempo_usual = tempo_usual;
 	}
 
