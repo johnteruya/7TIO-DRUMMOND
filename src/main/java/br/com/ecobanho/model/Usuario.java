@@ -19,7 +19,7 @@ public class Usuario {
 	private String nome_usuario;
 	
 	@Column(nullable=false)
-	private int sexo;
+	private String sexo;
 	
 	@Column(nullable=false)
 	private Long tempo_usual;
@@ -29,6 +29,8 @@ public class Usuario {
 	
 	private int fk_id_grupo;
 
+	
+	
 	public Long getId_usuario() {
 		return id_usuario;
 	}
@@ -53,14 +55,11 @@ public class Usuario {
 		this.nome_usuario = nome_usuario;
 	}
 
-
-
-		
-	public int getSexo() {
+	public String getSexo() {
 		return sexo;
 	}
 
-	public void setSexo(int sexo) {
+	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
 
@@ -87,5 +86,5 @@ public class Usuario {
 	public void setFk_id_grupo(int fk_id_grupo) {
 		this.fk_id_grupo = fk_id_grupo;
 	}
-	
+
 }

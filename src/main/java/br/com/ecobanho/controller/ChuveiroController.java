@@ -32,7 +32,7 @@ public class ChuveiroController {
 				.orElseThrow(() -> new ResourceNotFoundException("Chuveiro", "id_chuveiro", chuveiroId));
 	}
 	
-    @PutMapping("/chuveiros/{id_chuveiro}")
+    @PostMapping("/chuveiros/{id_chuveiro}")
     public Chuveiro updateChuveiro(@PathVariable(value = "id_chuveiro") Long chuveiroId,
                                            @Valid @RequestBody Chuveiro chuveiroDetails) {
 

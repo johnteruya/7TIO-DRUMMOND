@@ -34,7 +34,7 @@ public class GrupoController {
 				.orElseThrow(() -> new ResourceNotFoundException("Grupo", "id_grupo", grupoId));
 	}
 	
-	@PutMapping("/grupos/{id_grupo}") public Grupo updateGrupo(@PathVariable(value = "id_grupo")Long grupoId,
+	@PostMapping("/grupos/{id_grupo}") public Grupo updateGrupo(@PathVariable(value = "id_grupo")Long grupoId,
 		@Valid @RequestBody Grupo grupoDetails) {
 		Grupo grupo = grupoRepository.findById(grupoId)
 				.orElseThrow(() -> new
