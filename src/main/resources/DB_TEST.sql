@@ -1,6 +1,6 @@
 DROP DATABASE ecobanho_app;
-CREATE DATABASE ecobanho_app;
 USE ecobanho_app;
+CREATE DATABASE ecobanho_app;
 
 /* CRIANDO TABELAS */
 
@@ -61,14 +61,13 @@ INSERT INTO grupo (nome_grupo, num_integrantes) VALUES ('MARTINS', 4);
 
 /* INSERT USUARIO */
 
-INSERT INTO usuario (nickname, nome_usuario, sexo, tempo_usual, fk_tipo_chuveiro, fk_id_grupo) VALUES ('nick1', 'marcos', 'masculino', 600, 1, 1);
-INSERT INTO usuario (nickname, nome_usuario, sexo, tempo_usual, fk_tipo_chuveiro, fk_id_grupo) VALUES ('nick2', 'antonio', 'masculino', 700, 2, 2);
-INSERT INTO usuario (nickname, nome_usuario, sexo, tempo_usual, fk_tipo_chuveiro, fk_id_grupo) VALUES ('nick3', 'vinicius', 'masculino', 900, 1, 1);
-INSERT INTO usuario (nickname, nome_usuario, sexo, tempo_usual, fk_tipo_chuveiro, fk_id_grupo) VALUES ('nick4', 'maria', 'feminino', 600, 1, 1);
-INSERT INTO usuario (nickname, nome_usuario, sexo, tempo_usual, fk_tipo_chuveiro, fk_id_grupo) VALUES ('nick5', 'graça', 'feminino', 700, 2, 2);
-INSERT INTO usuario (nickname, nome_usuario, sexo, tempo_usual, fk_tipo_chuveiro, fk_id_grupo) VALUES ('nick6', 'marcela', 'feminino', 800, 2, 2);
-INSERT INTO usuario (nickname, nome_usuario, sexo, tempo_usual, fk_tipo_chuveiro, fk_id_grupo) VALUES ('nick7', 'janaina', 'feminino', 900, 2, 2);
-
+INSERT INTO usuario (nickname, nome_usuario, sexo, tempo_usual, fk_tipo_chuveiro, fk_id_grupo) VALUES ('nick1', 'marcos', 0, 600, 1, 1);
+INSERT INTO usuario (nickname, nome_usuario, sexo, tempo_usual, fk_tipo_chuveiro, fk_id_grupo) VALUES ('nick2', 'antonio', 0, 700, 2, 2);
+INSERT INTO usuario (nickname, nome_usuario, sexo, tempo_usual, fk_tipo_chuveiro, fk_id_grupo) VALUES ('nick3', 'vinicius', 0, 900, 1, 1);
+INSERT INTO usuario (nickname, nome_usuario, sexo, tempo_usual, fk_tipo_chuveiro, fk_id_grupo) VALUES ('nick4', 'maria', 1, 600, 1, 1);
+INSERT INTO usuario (nickname, nome_usuario, sexo, tempo_usual, fk_tipo_chuveiro, fk_id_grupo) VALUES ('nick5', 'graça', 1, 700, 2, 2);
+INSERT INTO usuario (nickname, nome_usuario, sexo, tempo_usual, fk_tipo_chuveiro, fk_id_grupo) VALUES ('nick6', 'marcela', 1, 800, 2, 2);
+INSERT INTO usuario (nickname, nome_usuario, sexo, tempo_usual, fk_tipo_chuveiro, fk_id_grupo) VALUES ('nick7', 'janaina', 1, 900, 2, 2);
 
 /* INSERTS USUARIOS */
 

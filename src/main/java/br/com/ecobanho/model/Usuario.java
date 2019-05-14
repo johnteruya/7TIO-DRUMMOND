@@ -19,7 +19,7 @@ public class Usuario {
 	private String nome_usuario;
 	
 	@Column(nullable=false)
-	private String sexo;
+	private boolean sexo;
 	
 	@Column(nullable=false)
 	private Long tempo_usual;
@@ -55,11 +55,11 @@ public class Usuario {
 		this.nome_usuario = nome_usuario;
 	}
 
-	public String getSexo() {
+	public boolean getSexo() {
 		return sexo;
 	}
 
-	public void setSexo(String sexo) {
+	public void setSexo(boolean sexo) {
 		this.sexo = sexo;
 	}
 
