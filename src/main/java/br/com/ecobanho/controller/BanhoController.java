@@ -23,45 +23,44 @@ public class BanhoController {
 		return banhoRepository.findAll();
 	}
 
-//	@PostMapping("/usuarios")
-//	public Usuario createUsuario(@Valid @RequestBody Usuario usuario) {
-//		return usuarioRepository.save(usuario);
-//	}
-//
-//	@GetMapping("/usuarios/{id_usuario}")
-//	public Usuario getUsuariosById_usuario(@PathVariable(value = "id_usuario") Long usuarioId) {
-//		return usuarioRepository.findById(usuarioId)
-//				.orElseThrow(() -> new ResourceNotFoundException("Usuario", "id_usuario", usuarioId));
-//	}
-//	
-//	@DeleteMapping("/usuarios/{id_usuario}") public ResponseEntity<?>
-//	deleteNote(@PathVariable(value = "id_usuario") Long usuarioId) {
-//		Usuario usuario = usuarioRepository.findById(usuarioId)
-//				.orElseThrow(() -> new
-//		ResourceNotFoundException("usuario", "id_usuario", usuarioId));
-//		
-//		usuarioRepository.delete(usuario);
-//		
-//		return ResponseEntity.ok().build();
-//	
-//	}
-//
-//	@PostMapping("/usuarios/{id_usuario}") public Usuario updateUsuario(@PathVariable(value = "id_usuario")Long usuarioId,
-//			@Valid @RequestBody Usuario usuarioDetails) {
-//			Usuario usuario = usuarioRepository.findById(usuarioId)
-//					.orElseThrow(() -> new
-//			ResourceNotFoundException("usuario", "id_usuario", usuarioId));
-//			
-//			usuario.setNickname(usuarioDetails.getNickname());
-//			usuario.setNome_usuario(usuarioDetails.getNome_usuario());
-//			usuario.setSexo(usuarioDetails.getSexo());
-//			usuario.setTempo_usual(usuarioDetails.getTempo_usual());
-//			usuario.setFk_tipo_chuveiro(usuarioDetails.getFk_tipo_chuveiro());
-//			usuario.setFk_id_grupo(usuarioDetails.getFk_id_grupo());
-//			
-//			Usuario updatedUsuario = usuarioRepository.save(usuario);
-//			
-//			return updatedUsuario;
-//		}
-//	
+	@PostMapping("/banhos")
+	public Banho createBanho(@Valid @RequestBody Banho banho) {
+		return banhoRepository.save(banho);
+	}
+
+	@GetMapping("/banhos/{id_banho}")
+	public Banho getBanhoById_banho(@PathVariable(value = "id_banho") Long banhoId) {
+		return banhoRepository.findById(banhoId)
+				.orElseThrow(() -> new ResourceNotFoundException("Banho", "id_banho", banhoId));
+	}
+	
+	@DeleteMapping("/banhos/{id_banho}") public ResponseEntity<?>deleteBanho(@PathVariable(value = "id_banho") Long banhoId) {
+		Banho banho = banhoRepository.findById(banhoId)
+				.orElseThrow(() -> new ResourceNotFoundException("banho", "id_banho", banhoId));
+		banhoRepository.delete(banho);
+		
+		return ResponseEntity.ok().build();
+	
+	}
+
+	@PostMapping("/banhos/{id_banho}") public Banho updateBanho(@PathVariable(value = "id_banho")Long banhoId,
+			@Valid @RequestBody Banho banhoDetails) {
+			Banho banho = banhoRepository.findById(banhoId)
+					.orElseThrow(() -> new
+			ResourceNotFoundException("banho", "id_banho", banhoId));
+			
+			banho.setData_banho(banhoDetails.getData_banho());
+			banho.setTempo_real(banhoDetails.getTempo_real());
+			banho.setConsumo_real(banhoDetails.getConsumo_real());
+			banho.setTempo_ideal(banhoDetails.getTempo_ideal());
+			banho.setConsumo_ideal(banhoDetails.getConsumo_ideal());
+			banho.setEconomia(banhoDetails.getEconomia());
+			banho.setFk_usuario(banhoDetails.getFk_usuario());
+			banho.setFk_chuveiro(banhoDetails.getFk_chuveiro());
+			
+			Banho updatedBanho = banhoRepository.save(banho);
+			
+			return updatedBanho;
+		}
+	
 }
