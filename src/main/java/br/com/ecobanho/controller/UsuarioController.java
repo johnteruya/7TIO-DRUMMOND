@@ -34,6 +34,11 @@ public class UsuarioController {
 				.orElseThrow(() -> new ResourceNotFoundException("Usuario", "id_usuario", usuarioId));
 	}
 	
+    @GetMapping("/listarPorNickname")
+    public List<Usuario> getUsuariosByNickname(String nickname) {
+		return usuarioRepository.getUsuariosByNickname(nickname);
+	}
+	
 	@DeleteMapping("/usuarios/{id_usuario}") public ResponseEntity<?>
 	deleteNote(@PathVariable(value = "id_usuario") Long usuarioId) {
 		Usuario usuario = usuarioRepository.findById(usuarioId)
@@ -46,22 +51,22 @@ public class UsuarioController {
 	
 	}
 
-	@PostMapping("/usuarios/{id_usuario}") public Usuario updateUsuario(@PathVariable(value = "id_usuario")Long usuarioId,
-			@Valid @RequestBody Usuario usuarioDetails) {
-			Usuario usuario = usuarioRepository.findById(usuarioId)
-					.orElseThrow(() -> new
-			ResourceNotFoundException("usuario", "id_usuario", usuarioId));
-			
-			usuario.setNickname(usuarioDetails.getNickname());
-			usuario.setNome_usuario(usuarioDetails.getNome_usuario());
-			usuario.setSexo(usuarioDetails.getSexo());
-			usuario.setTempo_usual(usuarioDetails.getTempo_usual());
-			usuario.setFk_tipo_chuveiro(usuarioDetails.getFk_tipo_chuveiro());
-			usuario.setFk_id_grupo(usuarioDetails.getFk_id_grupo());
-			
-			Usuario updatedUsuario = usuarioRepository.save(usuario);
-			
-			return updatedUsuario;
-		}
+//	@PostMapping("/usuarios/{id_usuario}") public Usuario updateUsuario(@PathVariable(value = "id_usuario")Long usuarioId,
+//			@Valid @RequestBody Usuario usuarioDetails) {
+//			Usuario usuario = usuarioRepository.findById(usuarioId)
+//					.orElseThrow(() -> new
+//			ResourceNotFoundException("usuario", "id_usuario", usuarioId));
+//			
+//			usuario.setNickname(usuarioDetails.getNickname());
+//			usuario.setNome_usuario(usuarioDetails.getNome_usuario());
+//			usuario.setSexo(usuarioDetails.getSexo());
+//			usuario.setTempo_usual(usuarioDetails.getTempo_usual());
+//			usuario.setFk_tipo_chuveiro(usuarioDetails.getFk_tipo_chuveiro());
+//			usuario.setFk_id_grupo(usuarioDetails.getFk_id_grupo());
+//			
+//			Usuario updatedUsuario = usuarioRepository.save(usuario);
+//			
+//			return updatedUsuario;
+//		}
 	
 }
