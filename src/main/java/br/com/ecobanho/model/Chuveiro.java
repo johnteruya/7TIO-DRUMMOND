@@ -1,7 +1,18 @@
 package br.com.ecobanho.model;
 
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-import javax.persistence.*;
 
 @Entity
 @Table(name = "chuveiro")
@@ -18,8 +29,9 @@ public class Chuveiro {
 	@Column(nullable=false)
 	private int vazao;
 
-    
-  
+	@OneToMany(targetEntity = Usuario.class, mappedBy = "fk_tipo_chuveiro", orphanRemoval = false, fetch = FetchType.LAZY)
+	private Set<Usuario> usuarios;
+
 	public Long getId_chuveiro() {
 		return id_chuveiro;
 	}
@@ -42,6 +54,14 @@ public class Chuveiro {
 
 	public void setVazao(int vazao) {
 		this.vazao = vazao;
+	}
+
+	public Set<Usuario> getUsuarios() {
+		return usuarios;
+	}
+
+	public void setUsuarios(Set<Usuario> usuarios) {
+		this.usuarios = usuarios;
 	}
       
 }

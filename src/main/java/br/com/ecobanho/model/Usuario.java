@@ -1,7 +1,19 @@
 package br.com.ecobanho.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-import javax.persistence.*;
 
 @Entity
 @Table(name = "usuario")
@@ -25,12 +37,16 @@ public class Usuario {
 	private Long tempo_usual;
 	
 	@Column(nullable=false)
-	private int fk_tipo_chuveiro;
+	private Long fk_id_grupo;
 	
-	private int fk_id_grupo;
+	@Column(nullable=false)
+	private String fk_tipo_chuveiro;
 
-	
-	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "fk_tipo_chuveiro", insertable = false, updatable = false)
+	@Fetch(FetchMode.JOIN)
+	private Chuveiro chuveiro;
+
 	public Long getId_usuario() {
 		return id_usuario;
 	}
@@ -71,20 +87,20 @@ public class Usuario {
 		this.tempo_usual = tempo_usual;
 	}
 
-	public int getFk_tipo_chuveiro() {
-		return fk_tipo_chuveiro;
-	}
-
-	public void setFk_tipo_chuveiro(int fk_tipo_chuveiro) {
-		this.fk_tipo_chuveiro = fk_tipo_chuveiro;
-	}
-
-	public int getFk_id_grupo() {
+	public Long getFk_id_grupo() {
 		return fk_id_grupo;
 	}
 
-	public void setFk_id_grupo(int fk_id_grupo) {
+	public void setFk_id_grupo(Long fk_id_grupo) {
 		this.fk_id_grupo = fk_id_grupo;
+	}
+	
+	public Chuveiro getChuveiro() {
+		return chuveiro;
+	}
+
+	public void setChuveiro(Chuveiro chuveiro) {
+		this.chuveiro = chuveiro;
 	}
 
 }
