@@ -55,15 +55,5 @@ public class ChuveiroController {
 
         return ResponseEntity.ok().build();
     }
-
-    
-	/*
-	 * BUSCAS QUERY BANCO
-	 */
-    
-    @GetMapping("/id_chuveiro")
-    public List<Chuveiro> getUsuarioById(Long id_chuveiro) {
-		return chuveiroRepository.getUsuarioById(id_chuveiro);
-	}
     
 }
