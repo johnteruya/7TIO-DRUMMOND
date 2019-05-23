@@ -22,7 +22,7 @@ public class HistoricoController {
 	}
 	
 	@GetMapping("/historicoPorData")
-	public List<Historico> getViewByDate(Long idUsuario, String dataInicial, String dataFinal){
+	public List<Historico> getHistoricoByDate(Long idUsuario, String dataInicial, String dataFinal){
 		return historicoRepository.getHistoricoByDate(idUsuario, dataInicial, dataFinal);
 	}
 }
