@@ -7,8 +7,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name="VISAO")
-public class View {
+@Table(name="historico")
+public class Historico {
 
 	@Id
 	@Column(name="ID_USUARIO")
