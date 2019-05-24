@@ -11,24 +11,23 @@ import javax.validation.constraints.NotNull;
 public class Historico {
 
 	@Id
-	@Column(name="ID_USUARIO")
+	@Column(name="id_usuario")
 	private long id_usuario;
 	
-	
 	@NotNull
-	@Column(name="NOME_USUARIO")
+	@Column(name="nome_usuario")
 	private String nome_usuario;
 	
 	@NotNull
-	@Column(name="NICKNAME")
+	@Column(name="nickname")
 	private String nickname;
 	
 	@NotNull
-	@Column(name="ECONOMIA")
+	@Column(name="economia")
 	private String economia;
 	
 	@NotNull
-	@Column(name="DATA_BANHO")
+	@Column(name="data_banho")
 	private String data_banho;
 
 	public long getId_usuario() {
