@@ -1,21 +1,20 @@
 DROP DATABASE ecobanho_app;
 USE ecobanho_app;
 CREATE DATABASE ecobanho_app;
+show databases;
+
 
 /* CRIANDO TABELAS */
-
 CREATE TABLE CHUVEIRO(
 	ID_CHUVEIRO int NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	TIPO_CHUVEIRO VARCHAR(255) NOT NULL,
 	VAZAO int NOT NULL
 );
-
 CREATE TABLE GRUPO(
 	ID_GRUPO int NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	NOME_GRUPO VARCHAR(255) NOT NULL,
 	NUM_INTEGRANTES int NOT NULL	
 );
-
 CREATE TABLE USUARIO(
 	ID_USUARIO int NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	NICKNAME VARCHAR(255) NOT NULL,
@@ -28,7 +27,6 @@ CREATE TABLE USUARIO(
 	FOREIGN KEY (FK_TIPO_CHUVEIRO) REFERENCES CHUVEIRO(ID_CHUVEIRO),
 	FOREIGN KEY (FK_ID_GRUPO) REFERENCES GRUPO(ID_GRUPO)
 );
-
 CREATE TABLE BANHO(
 	ID_BANHO int NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	DATA_BANHO DATE NOT NULL,
@@ -65,13 +63,17 @@ INSERT INTO usuario (nickname, nome_usuario, sexo, tempo_usual, fk_tipo_chuveiro
 INSERT INTO usuario (nickname, nome_usuario, sexo, tempo_usual, fk_tipo_chuveiro, fk_id_grupo) VALUES ('nick2', 'antonio', 0, 700, 2, 2);
 INSERT INTO usuario (nickname, nome_usuario, sexo, tempo_usual, fk_tipo_chuveiro, fk_id_grupo) VALUES ('nick3', 'vinicius', 0, 900, 1, 1);
 INSERT INTO usuario (nickname, nome_usuario, sexo, tempo_usual, fk_tipo_chuveiro, fk_id_grupo) VALUES ('nick4', 'maria', 1, 600, 1, 1);
+
+
 INSERT INTO usuario (nickname, nome_usuario, sexo, tempo_usual, fk_tipo_chuveiro, fk_id_grupo) VALUES ('nick5', 'graça', 1, 700, 2, 2);
+
 INSERT INTO usuario (nickname, nome_usuario, sexo, tempo_usual, fk_tipo_chuveiro, fk_id_grupo) VALUES ('nick6', 'marcela', 1, 800, 2, 2);
 INSERT INTO usuario (nickname, nome_usuario, sexo, tempo_usual, fk_tipo_chuveiro, fk_id_grupo) VALUES ('nick7', 'janaina', 1, 900, 2, 2);
 
 /* INSERTS USUARIOS */
 
 insert into banho (data_banho, tempo_real, consumo_real, tempo_ideal, consumo_ideal, economia,fk_usuario,fk_chuveiro) values ('2019-04-15', 600, 9000, 720, 10800, 1800, 1, 2);
+
 insert into banho (data_banho, tempo_real, consumo_real, tempo_ideal, consumo_ideal, economia,fk_usuario,fk_chuveiro) values ('2019-04-16', 700, 10500, 720, 10800, 300, 1, 2);
 
 
@@ -151,3 +153,46 @@ AND BANHO.DATA_BANHO >= '2019-04-15'
 GROUP BY USUARIO.NOME_USUARIO
 
 ORDER BY ECONOMIA DESC;
+
+
+/* VIEW CORRETA E FUNCIONANDO */
+
+CREATE VIEW historico AS
+SELECT 
+USUARIO.ID_USUARIO,
+USUARIO.NOME_USUARIO,
+USUARIO.NICKNAME,
+BANHO.ECONOMIA,
+BANHO.DATA_BANHO
+FROM USUARIO
+INNER JOIN BANHO 
+ON USUARIO.ID_USUARIO = BANHO.FK_USUARIO
+ORDER BY DATA_BANHO;
+
+
+
+
+
+
+/* VIEW CORRETA E FUNCIONANDO */
+
+create view ranking as
+SELECT
+Usuario.nome_usuario, grupo.nome_grupo, grupo.id_grupo,
+SUM(Banho.economia) as economia
+FROM Usuario
+INNER JOIN Grupo
+ON Usuario.FK_ID_GRUPO = Grupo.id_grupo
+INNER JOIN Banho
+ON Usuario.id_usuario = BANHO.FK_USUARIO
+GROUP BY Usuario.nome_usuario, grupo.nome_grupo, grupo.id_grupo
+ORDER BY economia DESC;
+
+
+
+
+
+
+
+
+
