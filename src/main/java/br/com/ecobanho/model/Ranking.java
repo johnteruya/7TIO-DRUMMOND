@@ -5,28 +5,28 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+
 @Entity
-@Table(name="ranking")
+@Table(name="ranking1")
 public class Ranking {
 	
-	
 	@NotNull
-	@Column(name="NOME_USUARIO")
+	@Column(name="nome_usuario")
 	private String nome_usuario;
 	
 	@NotNull
-	@Column(name="NOME_GRUPO")
+	@Column(name="nome_grupo")
 	private String nome_grupo;
 	
 	
 	@NotNull
-	@Column(name="ID_GRUPO")
-	private Long nickname;
+	@Column(name="id_grupo")
+	private Long id_grupo;
 	
 	
 	@NotNull
-	@Column(name="ECONOMIA")
-	private int economia;
+	@Column(name="economia")
+	private double economia;
 
 
 	public String getNome_usuario() {
@@ -49,24 +49,26 @@ public class Ranking {
 	}
 
 
-	public Long getNickname() {
-		return nickname;
+	public Long getId_grupo() {
+		return id_grupo;
 	}
 
 
-	public void setNickname(Long nickname) {
-		this.nickname = nickname;
+	public void setId_grupo(Long id_grupo) {
+		this.id_grupo = id_grupo;
 	}
 
 
-	public int getEconomia() {
+	public double getEconomia() {
 		return economia;
 	}
 
 
-	public void setEconomia(int economia) {
+	public void setEconomia(double economia) {
 		this.economia = economia;
 	}
+
 	
 
+		
 }
