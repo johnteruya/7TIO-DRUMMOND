@@ -28,6 +28,6 @@ HELP.md
 ### VS Code ###
 .vscode/
 
-### Dependencias de  ###
+### Dependencias de Bando de Dados###
 /src/main/resources/application.properties
 pom.xml
