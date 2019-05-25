@@ -1,5 +1,7 @@
 package br.com.ecobanho.model;
 
+import java.util.UUID;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -11,24 +13,39 @@ import javax.validation.constraints.NotNull;
 public class Historico {
 
 	@Id
-	@Column(name="id_usuario")
+    @Column(columnDefinition = "BINARY(16)")
+    private UUID uuid;
+	
+	@Column(name="ID_USUARIO")
 	private long id_usuario;
 	
+	
 	@NotNull
-	@Column(name="nome_usuario")
+	@Column(name="NOME_USUARIO")
 	private String nome_usuario;
 	
 	@NotNull
-	@Column(name="nickname")
+	@Column(name="NICKNAME")
 	private String nickname;
 	
 	@NotNull
-	@Column(name="economia")
+	@Column(name="ECONOMIA")
 	private String economia;
 	
 	@NotNull
-	@Column(name="data_banho")
+	@Column(name="DATA_BANHO")
 	private String data_banho;
+
+	
+	
+	
+	public UUID getUuid() {
+		return uuid;
+	}
+
+	public void setUuid(UUID uuid) {
+		this.uuid = uuid;
+	}
 
 	public long getId_usuario() {
 		return id_usuario;

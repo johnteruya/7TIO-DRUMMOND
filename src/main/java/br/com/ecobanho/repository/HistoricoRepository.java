@@ -11,7 +11,7 @@ import br.com.ecobanho.model.Historico;
 public interface HistoricoRepository extends JpaRepository<Historico, Long> {
 	
 	
-	@Query(value = "SELECT h FROM Historico h WHERE id_usuario = ?1  AND h.data_banho >=?2 AND h.data_banho <=?3")
+	@Query(value = "SELECT h.id_usuario, h.nome_usuario, h.nickname, h.economia, h.data_banho FROM Historico h WHERE id_usuario = ?1  AND h.data_banho >=?2 AND h.data_banho <=?3")
 	List<Historico> getHistoricoByDate(Long idUsuario, String dataInicial, String dataFinal);
 	
 	

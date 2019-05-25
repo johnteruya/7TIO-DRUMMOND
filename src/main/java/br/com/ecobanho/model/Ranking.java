@@ -1,35 +1,51 @@
 package br.com.ecobanho.model;
 
+import java.util.UUID;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "ranking")
+@Table(name="ranking")
 public class Ranking {
-    
-	@NotNull
-	@Column(name="id_grupo")
-	private Long id_grupo;
-	
-	@NotNull
-	@Column(name="nome_usuario")
-    private String nome_usuario;
 
-	@NotNull
+//	@Id
+//	private long id1;
+	
+	@Id
+    @Column(columnDefinition = "BINARY(16)")
+    private UUID uuid;
+	
+	
+
+	@Column(name="id_grupo")
+	private long id_grupo;
+	
+	@Column(name="nome_usuario")
+	private String nome_usuario;
+	
 	@Column(name="nome_grupo")
 	private String nome_grupo;
 	
-	@NotNull
 	@Column(name="economia")
-	private Double economia;
+	private double economia;
 
-	public Long getId_grupo() {
+	public UUID getUuid() {
+		return uuid;
+	}
+
+	public void setUuid(UUID uuid) {
+		this.uuid = uuid;
+	}
+	
+	
+	public long getId_gurpo() {
 		return id_grupo;
 	}
 
-	public void setId_grupo(Long id_grupo) {
+	public void setId_gurpo(long id_grupo) {
 		this.id_grupo = id_grupo;
 	}
 
@@ -49,12 +65,13 @@ public class Ranking {
 		this.nome_grupo = nome_grupo;
 	}
 
-	public Double getEconomia() {
+	public double getEconomia() {
 		return economia;
 	}
 
-	public void setEconomia(Double economia) {
+	public void setEconomia(double economia) {
 		this.economia = economia;
 	}
-	
+
+
 }
